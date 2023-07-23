@@ -54,6 +54,7 @@ const key_override_t **key_overrides = (const key_override_t *[]) {
 #define GB_AT S(KC_QUOT)
 #define GB_TILD S(KC_NUHS)
 #define GB_COLN S(KC_SCLN)
+#define KC_SHINS S(KC_INS)
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [0] = LAYOUT_split_3x6_3(
@@ -70,11 +71,11 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
   [1] = LAYOUT_split_3x6_3(
   //,-----------------------------------------------------.                    ,-----------------------------------------------------.
-      _______, XXXXXXX,    KC_1,    KC_2,    KC_3,    KC_0,                      XXXXXXX, XXXXXXX, KC_PAST,  KC_INS,  KC_DEL, _______,
+      _______,    KC_1,    KC_2,    KC_3,    KC_4,    KC_5,                      XXXXXXX,KC_SHINS, KC_PAST,  KC_INS,  KC_DEL, _______,
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
-      _______, XXXXXXX,    KC_4,    KC_5,    KC_6, KC_PGUP,                      KC_LEFT, KC_DOWN,   KC_UP,KC_RIGHT, KC_PSLS, _______,
+      _______,    KC_6,    KC_7,    KC_8,    KC_9,    KC_0,                      KC_LEFT, KC_DOWN,   KC_UP,KC_RIGHT, KC_PSLS, _______,
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
-      _______, XXXXXXX,    KC_7,    KC_8,    KC_9, KC_PGDN,                      KC_PPLS, KC_PMNS, KC_HOME, KC_END,  XXXXXXX, _______,
+      _______, KC_HOME,  KC_END, KC_PGUP, KC_PGDN, XXXXXXX,                      KC_PPLS, KC_PMNS, KC_COMM,  KC_DOT, XXXXXXX, _______,
   //|--------+--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------+--------|
                                           _______, _______, _______,    _______, _______, _______
                                       //`--------------------------'  `--------------------------'
