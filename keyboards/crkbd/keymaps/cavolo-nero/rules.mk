@@ -2,7 +2,6 @@ MOUSEKEY_ENABLE         = no
 EXTRA_KEYS_ENABLE       = no
 RGBLIGHT_ENABLE         = no
 OLED_ENABLE             = yes
-OLED_DRIVER             = SSD1306
 LTO_ENABLE              = yes
 KEY_OVERRIDE_ENABLE     = yes
 RGBLIGHT_SUPPORTED      = no

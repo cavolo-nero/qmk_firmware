@@ -65,7 +65,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
       KC_LGUI,    KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,                         KC_N,    KC_M, KC_COMM,  KC_DOT, KC_SCLN, KC_CAPS,
   //|--------+--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------+--------|
-                                          KC_LCTL,  KC_SPC,  KC_ENT,    KC_LSFT,   MO(2),   MO(1)
+                                          KC_LCTL,  KC_ENT,  KC_SPC,    KC_LSFT,   MO(2),   MO(1)
                                       //`--------------------------'  `--------------------------'
   ),
 
@@ -87,7 +87,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
       _______, KC_NUBS, KC_LBRC, GB_LTBR, GB_LTCB, GB_LTAB,                      GB_GTAB, GB_RTCB, GB_RTBR, KC_RBRC,KC_SLASH, _______,
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
-      _______, KC_GRV,  XXXXXXX,  GB_QMK, GB_PIPE, KC_NUHS,                      GB_PLUS, KC_MINS,   GB_AT, GB_TILD, GB_COLN, _______,
+      _______, KC_GRV,  XXXXXXX,  GB_QMK, GB_PIPE, KC_NUHS,                      GB_PLUS, KC_MINS, GB_COLN, GB_TILD,   GB_AT, _______,
   //|--------+--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------+--------|
                                           _______, _______, _______,    _______, _______, _______
                                       //`--------------------------'  `--------------------------'
@@ -180,13 +180,14 @@ void oled_render_logo(void) {
     oled_write_P(crkbd_logo, false);
 }
 
-void oled_task_user(void) {
+bool oled_task_user(void) {
     if (is_keyboard_master()) {
         oled_render_layer_state();
         oled_render_keylog();
     } else {
         oled_render_logo();
     }
+    return false;
 }
 
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
